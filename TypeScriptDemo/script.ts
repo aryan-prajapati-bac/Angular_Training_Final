@@ -10,7 +10,7 @@ interface IPerson{
     lastName:string;
     age:number;
     address:IAddress;
-    contact:string | string[];
+    contact?:string | string[];
     getFullName():string;
     getFullAddress():string;
     getContactList():string|string[]
@@ -29,7 +29,7 @@ let personObject=<IPerson>{
     lastName:"Prajapati",
     age:22,
     address:addressObject,
-    contact:['8487980301','8787878798'],
+    
     getFullName(){
         return "Name : "+this.firstName +" "+ this.lastName;
     },
@@ -37,6 +37,7 @@ let personObject=<IPerson>{
         return "Address : "+this.address.street +" ,"+this.address.city+","+this.address.pincode;
     },
     getContactList() {  
+        if(this.contact===undefined) return "Contacts : No contacts";
         return "Contacts : "+this.contact;       
     },
 };
