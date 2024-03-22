@@ -10,7 +10,7 @@ interface IPerson {
     lastName: string;
     age: number;
     address: IAddress;
-    contact?: string | string[];
+    contact: string | string[];
     getFullName(): string;
     getFullAddress(): string;
     getContactList(): string | string[]
@@ -29,7 +29,7 @@ let personObject = <IPerson>{
     lastName: "Prajapati",
     age: 22,
     address: addressObject,
-    contact: [],
+    contact: [],    // here,user can add empty string '' as well as empty array [] for no contacts.
     getFullName() {
         return "Name : " + this.firstName + " " + this.lastName;
     },
