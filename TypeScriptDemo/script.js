@@ -8,6 +8,7 @@ var personObject = {
     lastName: "Prajapati",
     age: 22,
     address: addressObject,
+    contact: [],
     getFullName: function () {
         return "Name : " + this.firstName + " " + this.lastName;
     },
@@ -15,7 +16,7 @@ var personObject = {
         return "Address : " + this.address.street + " ," + this.address.city + "," + this.address.pincode;
     },
     getContactList: function () {
-        if (this.contact === undefined)
+        if (this.contact === undefined || this.contact.length === 0)
             return "Contacts : No contacts";
         return "Contacts : " + this.contact;
     },
