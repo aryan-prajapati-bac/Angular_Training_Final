@@ -8,19 +8,14 @@ var personObject = {
     lastName: "Prajapati",
     age: 22,
     address: addressObject,
-    contact: [],
+    contact: null, // here,user can add empty string '' as well as empty array [] for no contacts.
     getFullName: function () {
         return "Name : " + this.firstName + " " + this.lastName;
     },
     getFullAddress: function () {
         return "Address : " + this.address.street + " ," + this.address.city + "," + this.address.pincode;
-    },
-    getContactList: function () {
-        if (this.contact === undefined || this.contact.length === 0)
-            return "Contacts : No contacts";
-        return "Contacts : " + this.contact;
-    },
+    }
 };
 console.log(personObject.getFullName());
 console.log(personObject.getFullAddress());
-console.log(personObject.getContactList());
+console.log("Contacts : ".concat(personObject.contact));

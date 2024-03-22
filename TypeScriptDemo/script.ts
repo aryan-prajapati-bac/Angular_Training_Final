@@ -10,10 +10,9 @@ interface IPerson {
     lastName: string;
     age: number;
     address: IAddress;
-    contact: string | string[];
+    contact: string | string[] | null;
     getFullName(): string;
     getFullAddress(): string;
-    getContactList(): string | string[]
 
 }
 
@@ -29,19 +28,15 @@ let personObject = <IPerson>{
     lastName: "Prajapati",
     age: 22,
     address: addressObject,
-    contact: [],    // here,user can add empty string '' as well as empty array [] for no contacts.
+    contact: null,    // here,user can add empty string '' as well as empty array [] for no contacts.
     getFullName() {
         return "Name : " + this.firstName + " " + this.lastName;
     },
     getFullAddress() {
         return "Address : " + this.address.street + " ," + this.address.city + "," + this.address.pincode;
-    },
-    getContactList() {
-        if (this.contact === undefined || this.contact.length === 0) return "Contacts : No contacts";
-        return "Contacts : " + this.contact;
-    },
+    }
 };
 
 console.log(personObject.getFullName());
 console.log(personObject.getFullAddress());
-console.log(personObject.getContactList());
+console.log(`Contacts : ${personObject.contact}`);
